@@ -9,7 +9,6 @@ import br.com.tema.enums.Classe;
 import br.com.tema.enums.Tipo;
 import br.com.tema.exception.CartaInvalidaException;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 //@NoArgsConstructor
@@ -30,7 +29,7 @@ public class Carta {
 		return ataqueCarta >= 0 && ataqueCarta <=10 ? true : false;
 	}
 
-	public void setAtaqueCarta(int ataque) throws CartaInvalidaException {
+	public void setAtaqueCarta(int ataque) {
 		if (isValid(ataque)) {
 			this.ataqueCarta = ataque;		
 		} else

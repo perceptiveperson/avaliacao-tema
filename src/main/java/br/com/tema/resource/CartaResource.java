@@ -89,16 +89,13 @@ public class CartaResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response cadastrar(Carta carta) throws CartaInvalidaException {
 		Carta c = cartaRepository.save(carta);
-		/*
-		if(c.getAtaqueCarta() == 12)
-			 throw new CartaInvalidaException("Valor inválido");
-		*/
-	//	if( c != null ) {									
+		
+		if( c != null ) {									
 			return Response.created(URI.create(uriInfo.getBaseUri()+"id/"+c.getId()))
 					.entity("Carta Criada!")
 					.build();
-		//}else 
-		//	return Response.status(Response.Status.EXPECTATION_FAILED).build();
+		}else 
+			return Response.status(Response.Status.EXPECTATION_FAILED).build();
 	}
 	
 	@DELETE
